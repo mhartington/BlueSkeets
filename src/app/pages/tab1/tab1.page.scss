@@ -1,0 +1,10 @@
+ion-fab {
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (min-width: 992px) {
+  ion-fab {
+    display: none;
+  }
+}

@@ -1,0 +1,11 @@
+<ng-container *ngIf="actor(); let actor">
+  <ion-avatar>
+    <img [src]="actor.avatar" alt="" />
+  </ion-avatar>
+  <p>{{ actor.displayName }}</p>
+  <p>@{{ actor.handle }}</p>
+  <p>
+    <strong>{{ actor.followersCount }}</strong> followers •
+    <strong>{{ actor.followsCount }}</strong> following
+  </p>
+</ng-container>

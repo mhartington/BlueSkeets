@@ -1,0 +1,23 @@
+ion-item {
+    --background: transparent;
+}
+ion-list {
+  background: transparent;
+}
+
+.selected {
+  --background: rgba(var(--ion-color-primary-rgb), 0.8);
+  color: #ffffff;
+  font-weight: 700;
+  --color-hover: white;
+
+
+  ion-icon {
+    --ion-color-base: #ffffff !important;
+  }
+}
+
+
+ion-menu {
+  --side-max-width: 320px;
+}

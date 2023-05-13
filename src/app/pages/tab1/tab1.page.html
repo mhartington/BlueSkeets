@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar> -->
+  <!--   <!-- <ion-title>Home</ion-title> -->
+  <!-- </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed="true">
+    <post-card
+      *ngFor="let post of feed()"
+      [post]="post.post"
+      [routerLink]="'/app/home/' + post.post.author.handle + '/post/' + post.post.uri.split('/').pop()"
+    />
+  </ion-grid>
+  <!-- <pre>{{ feed() | json}}</pre> -->
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" edge="false">
+    <ion-fab-button id="author-post">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-modal trigger="author-post">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="transparent">
+        <ion-buttons slot="start">
+          <ion-button color="primary" fill="clear">Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" shape="round">Post</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <ion-textarea placeholder="What's up?" autoGrow="true" counter="true" maxlength="300" [counterFormatter]="format"></ion-textarea>
+    </ion-content>
+
+    <ion-footer class="ion-no-border">
+      <ion-toolbar>
+
+        <!-- <ion-buttons slot="start"> -->
+        <!--   <ion-button color="primary" fill="clear">Cancel</ion-button> -->
+        <!-- </ion-buttons> -->
+        <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" shape="round">Post</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

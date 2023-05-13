@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar class="transparent"> -->
+  <!-- </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="actor(); let actor">
+    <div class="detail-header">
+      <ion-avatar>
+        <img
+          [src]="actor.avatar"
+          loading="lazy"
+          alt=""
+          width="150"
+          height="150"
+        />
+      </ion-avatar>
+    </div>
+    <div class="actor-bio ion-padding">
+      <h1>{{actor.displayName}}</h1>
+      <small>{{actor.handle}}</small>
+      <p>
+        <strong>{{actor.followersCount}}</strong> followers
+        <strong>{{actor.followersCount}}</strong> following
+        <strong>{{actor.postsCount}}</strong> posts
+      </p>
+      <p [innerText]="actor.description"></p>
+    </div>
+  </ng-container>
+
+  <pre>{{timeline() | json}}</pre>
+</ion-content>

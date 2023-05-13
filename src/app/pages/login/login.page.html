@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="onSubmit($event)">
+    <ion-list>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Sign into</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-icon name="globe-outline" slot="start" />
+          <ion-input
+            placeholder="Bluesky Social"
+            name="service"
+            required
+            [(ngModel)]="loginContext.service"
+          />
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Account</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-icon name="at-outline" slot="start" />
+          <ion-input
+            placeholder="handle"
+            type="text"
+            name="handle"
+            required
+            [(ngModel)]="loginContext.handle"
+          />
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start" />
+          <ion-input
+            placeholder="App password"
+            type="password"
+            name="password"
+            required
+            [(ngModel)]="loginContext.password"
+          />
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+    <ion-button fill="clear" expand="block" type="submit">Sign In</ion-button>
+  </form>
+
+  <!--  <form [formGroup]="loginContext" (submit)="onSubmit($event)" novalidate> -->
+  <!--   <ion-list> -->
+  <!--     <ion-item-group> -->
+  <!--       <ion-item-divider> -->
+  <!--         <ion-label>Sign into</ion-label> -->
+  <!--       </ion-item-divider> -->
+  <!---->
+  <!--       <ion-item> -->
+  <!--         <ion-icon name="globe-outline" slot="start" /> -->
+  <!--         <ion-input placeholder="Bluesky Social" formControlName="service" /> -->
+  <!--       </ion-item> -->
+  <!--     </ion-item-group> -->
+  <!---->
+  <!--     <ion-item-group> -->
+  <!--       <ion-item-divider> -->
+  <!--         <ion-label>Account</ion-label> -->
+  <!--       </ion-item-divider> -->
+  <!---->
+  <!--       <ion-item> -->
+  <!--         <ion-icon name="at-outline" slot="start" /> -->
+  <!--         <ion-input placeholder="handle" type="text" formControlName="handle" /> -->
+  <!--       </ion-item> -->
+  <!--       <ion-item> -->
+  <!--         <ion-icon name="lock-closed-outline" slot="start" /> -->
+  <!--         <ion-input placeholder="App password" type="password" formControlName="password" /> -->
+  <!--       </ion-item> -->
+  <!--     </ion-item-group> -->
+  <!--   </ion-list> -->
+  <!--   <ion-button fill="clear" expand="block" type="submit">Sign In</ion-button> -->
+  <!-- </form> -->
+</ion-content>

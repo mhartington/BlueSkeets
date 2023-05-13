@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app" />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed="true">
+  <ng-container *ngIf="mainPost(); let mainPost">
+    <post-card [post]="mainPost"></post-card>
+  </ng-container>
+  </ion-grid>
+</ion-content>

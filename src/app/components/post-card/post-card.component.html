@@ -1,0 +1,42 @@
+<ion-card>
+  <ion-card-header>
+    <ion-avatar>
+      <img
+        [src]="post.author.avatar"
+        loading="lazy"
+        decoding="async"
+        [alt]="post.author.displayName"
+      />
+    </ion-avatar>
+    <p>
+      <span>{{ post.author.displayName }}</span> •
+      <span>(@{{ post.author.handle }})</span>
+    </p>
+  </ion-card-header>
+  <ion-card-content>
+    <p [innerHTML]="record.text"></p>
+
+    <ng-container *ngIf="embeds?.images?.length">
+      <div class="embed-wrapper">
+        <div class="img-wrapper" *ngFor="let img of embeds.images">
+          <img [src]="img.thumb" [alt]="img.alt" />
+        </div>
+      </div>
+    </ng-container>
+    <!-- <pre>{{ post | json }}</pre> -->
+  </ion-card-content>
+  <ion-buttons>
+    <ion-button (click)="reply()" fill="clear" color="dark"
+      ><ion-icon name="chatbox-outline" slot="start" />
+      <p>{{ post.replyCount }}</p>
+    </ion-button>
+    <ion-button (click)="repost()" fill="clear" color="dark">
+      <ion-icon name="repeat-outline" slot="start" />
+      <p>{{ post.repostCount }}</p>
+    </ion-button>
+    <ion-button (click)="like()" fill="clear" color="dark">
+      <ion-icon name="heart-outline" slot="start" />
+      <p>{{ post.likeCount }}</p>
+    </ion-button>
+  </ion-buttons>
+</ion-card>

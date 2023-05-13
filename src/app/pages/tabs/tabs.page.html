@@ -1,0 +1,59 @@
+<ion-split-pane when="(min-width: 850px)" contentId="main">
+  <ion-menu contentId="main">
+    <ion-content fullscreen="true">
+      <user-info-card
+        [handle]="handle"
+        class="ion-padding"
+        [routerLink]="'/app/profile/' + handle"
+      />
+      <ion-list lines="none">
+      <ion-item-group>
+        <ion-menu-toggle autoHide="false">
+          <ion-item
+            routerLink="/app/home"
+            routerDirection="root"
+            routerLinkActive="selected"
+            detail="false"
+          >
+            <ion-icon name="home" slot="start"></ion-icon>
+            Home
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide="false">
+          <ion-item
+            [routerLink]="'/app/profile/' + handle"
+            routerDirection="root"
+            routerLinkActive="selected"
+            detail="false"
+          >
+            <ion-icon name="person" slot="start"></ion-icon>
+            Profile
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-item-group>
+      </ion-list>
+      <ion-list line="none" class="ion-padding">
+      <ion-button fill="solid" shape="round" expand="block">New Post</ion-button>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+  <div id="main" class="tabs-wrapper">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon aria-hidden="true" name="home" />
+        </ion-tab-button>
+
+        <!-- <ion-tab-button tab="tab2"> -->
+        <!--   <ion-icon aria-hidden="true" name="ellipse"></ion-icon> -->
+        <!--   <ion-label>Tab 2</ion-label> -->
+        <!-- </ion-tab-button> -->
+        <!---->
+        <ion-tab-button tab="profile">
+          <ion-icon aria-hidden="true" name="person"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+</ion-split-pane>
