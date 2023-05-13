@@ -1,7 +1,8 @@
-import { JsonPipe, NgIf, NgOptimizedImage } from '@angular/common';
+import { JsonPipe, NgForOf, NgIf, NgOptimizedImage, NgStyle } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { PostCardComponent } from 'src/app/components/post-card/post-card.component';
 import { BskService } from 'src/app/services/bsk/bsk.service';
 
 @Component({
@@ -9,13 +10,13 @@ import { BskService } from 'src/app/services/bsk/bsk.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
   standalone: true,
-  imports: [IonicModule,JsonPipe, NgOptimizedImage, NgIf],
+  imports: [IonicModule,JsonPipe, NgOptimizedImage, NgIf, PostCardComponent, RouterLink, NgForOf, NgStyle],
 })
 export class Tab3Page {
   constructor() {}
 
   private bsk = inject(BskService)
-  private route = inject(ActivatedRoute)
+  public route = inject(ActivatedRoute)
 
 
   public timeline = signal<any>(null);
@@ -28,6 +29,7 @@ export class Tab3Page {
     const timeline = await this.bsk.agent?.getAuthorFeed({actor: did});
 
     this.actor.set(actor?.data);
+    console.log(actor?.data)
     this.timeline.set(timeline?.data.feed);
   }
 

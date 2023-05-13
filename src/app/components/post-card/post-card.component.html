@@ -1,5 +1,5 @@
 <ion-card>
-  <ion-card-header>
+  <ion-card-header (click)="goToProfile($event)">
     <ion-avatar>
       <img
         [src]="post.author.avatar"
@@ -34,8 +34,8 @@
       <ion-icon name="repeat-outline" slot="start" />
       <p>{{ post.repostCount }}</p>
     </ion-button>
-    <ion-button (click)="like()" fill="clear" color="dark">
-      <ion-icon name="heart-outline" slot="start" />
+    <ion-button (click)="like()" fill="clear" color="dark" [ngClass]="{'user-liked': post.viewer?.like}">
+      <ion-icon [name]="post.viewer!.like! ? 'heart' : 'heart-outline'" slot="start" />
       <p>{{ post.likeCount }}</p>
     </ion-button>
   </ion-buttons>

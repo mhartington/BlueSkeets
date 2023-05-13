@@ -12,6 +12,7 @@ export class BskService {
 
   constructor() {
     this.restoreSavedSession();
+    console.log(this.handle)
   }
   async restoreSavedSession(): Promise<BskyAgent | null> {
     try {

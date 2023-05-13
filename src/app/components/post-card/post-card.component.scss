@@ -63,4 +63,18 @@
       object-fit: cover;
     }
   }
+
+  ion-buttons{
+    ion-button{
+
+
+
+      &.user-liked{
+       ion-icon{
+          color: rgb(236, 72, 153);
+        }
+      }
+    }
+  }
+
 }
