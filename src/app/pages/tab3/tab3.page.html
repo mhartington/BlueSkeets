@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid fixed="true">
   <ng-container *ngIf="actor(); let actor">
     <div
       class="detail-header"
@@ -37,10 +38,6 @@
     </div>
   </ng-container>
 
-  <!-- <pre>{{timeline() | json}}</pre> -->
-
-  <ion-grid fixed="true">
-    <!-- <pre>{{route.toString()}}</pre> -->
     <post-card
       *ngFor="let post of timeline()"
       [post]="post.post"

@@ -19,8 +19,8 @@ export class PostCardComponent implements OnInit {
   record: any = null;
 
   private bsk = inject(BskService);
-  private rtr = inject(Router)
-  private route = inject(ActivatedRoute)
+  private rtr = inject(Router);
+  private route = inject(ActivatedRoute);
   embeds: any;
   ngOnInit() {
     this.record = this.post.record as any;
@@ -37,9 +37,10 @@ export class PostCardComponent implements OnInit {
 
   goToProfile(e: any) {
     e.stopPropagation();
-    console.log(this.post.author.handle)
-    // this.
-    this.rtr.navigate([this.post.author.handle], {relativeTo: this.route})
+    const root = this.route.snapshot.url[0].path;
+    this.rtr.navigate(['app', root, this.post.author.handle]);
+
+    // this.{relativeTo: this.route}
     // throw new Error('Method not implemented.');
   }
 }

@@ -1,9 +1,8 @@
-<ion-header [translucent]="true">
-  <!-- <ion-toolbar> -->
-  <!--   <!-- <ion-title>Home</ion-title> -->
-  <!-- </ion-toolbar> -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Feed</ion-title>
+  </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-grid fixed="true">
     <post-card
@@ -12,8 +11,6 @@
       [routerLink]="'/app/home/' + post.post.author.handle + '/post/' + post.post.uri.split('/').pop()"
     />
   </ion-grid>
-  <!-- <pre>{{ feed() | json}}</pre> -->
-
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" edge="false">
     <ion-fab-button id="author-post">
       <ion-icon name="create-outline"></ion-icon>
