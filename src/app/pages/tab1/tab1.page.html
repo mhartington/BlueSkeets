@@ -1,9 +1,14 @@
-<ion-header>
+<ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>Feed</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Feed</ion-title>
+    </ion-toolbar>
+  </ion-header>
   <ion-grid fixed="true">
     <post-card
       *ngFor="let post of feed()"

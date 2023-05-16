@@ -1,8 +1,8 @@
 {
-  "name": "app",
-  "short_name": "app",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "BlueSkeets",
+  "short_name": "Bskeets",
+  "theme_color": "#0070FF",
+  "background_color": "#0070FF",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

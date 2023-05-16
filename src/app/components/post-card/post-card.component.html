@@ -1,42 +1,51 @@
 <ion-card>
   <ion-card-header (click)="goToProfile($event)">
-    <ion-avatar>
-      <img
-        [src]="post.author.avatar"
-        loading="lazy"
-        decoding="async"
-        [alt]="post.author.displayName"
-      />
-    </ion-avatar>
-    <p>
-      <span>{{ post.author.displayName }}</span> •
-      <span>(@{{ post.author.handle }})</span>
-    </p>
+    <ng-container *ngIf="_post(); let actor">
+      <ion-avatar>
+        <img
+          [src]="actor?.author?.avatar"
+          loading="lazy"
+          decoding="async"
+          [alt]="actor.author.displayName"
+        />
+      </ion-avatar>
+      <p>
+        <span>{{ actor.author.displayName }}</span> •
+        <span>(@{{ actor.author.handle }})</span>
+      </p>
+    </ng-container>
   </ion-card-header>
   <ion-card-content>
-    <p [innerHTML]="record.text"></p>
-
-    <ng-container *ngIf="embeds?.images?.length">
+    <p [innerHTML]="record().text"></p>
+    <ng-container *ngIf="embeds()?.images?.length">
       <div class="embed-wrapper">
-        <div class="img-wrapper" *ngFor="let img of embeds.images">
+        <div class="img-wrapper" *ngFor="let img of embeds().images">
           <img [src]="img.thumb" [alt]="img.alt" />
         </div>
       </div>
     </ng-container>
-    <!-- <pre>{{ post | json }}</pre> -->
+    <!--   <!-- <pre>{{ post | json }}</pre> -->
   </ion-card-content>
   <ion-buttons>
     <ion-button (click)="reply()" fill="clear" color="dark"
       ><ion-icon name="chatbox-outline" slot="start" />
-      <p>{{ post.replyCount }}</p>
+      <p>{{ _post()?.replyCount }}</p>
     </ion-button>
     <ion-button (click)="repost()" fill="clear" color="dark">
       <ion-icon name="repeat-outline" slot="start" />
-      <p>{{ post.repostCount }}</p>
+      <p>{{ _post()?.repostCount }}</p>
     </ion-button>
-    <ion-button (click)="like()" fill="clear" color="dark" [ngClass]="{'user-liked': post.viewer?.like}">
-      <ion-icon [name]="post.viewer!.like! ? 'heart' : 'heart-outline'" slot="start" />
-      <p>{{ post.likeCount }}</p>
+    <ion-button
+      (click)="toggleLike($event)"
+      fill="clear"
+      color="dark"
+      [ngClass]="{ 'user-liked': _post()?.viewer?.like }"
+    >
+      <ion-icon
+        [name]="(_post()?.viewer)!.like! ? 'heart' : 'heart-outline'"
+        slot="start"
+      />
+      <p>{{ _post()?.likeCount }}</p>
     </ion-button>
   </ion-buttons>
 </ion-card>

@@ -29,7 +29,6 @@ export class Tab3Page {
     const timeline = await this.bsk.agent?.getAuthorFeed({actor: did});
 
     this.actor.set(actor?.data);
-    console.log(actor?.data)
     this.timeline.set(timeline?.data.feed);
   }
 

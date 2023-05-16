@@ -44,12 +44,14 @@
       }
     }
 
+  }
+  .actor-bio{
+    position: relative;
     ion-avatar {
       position: absolute;
       overflow: visible;
-      bottom: -36px;
-      left: 18px;
-      transition: all 0.3s;
+      top: -60px;
+      left: 16px;
       width: 80px;
       height:80px;
 
@@ -61,6 +63,7 @@
         border: 3px solid white;
       }
     }
+
   }
   h1 {
     margin-bottom: 0;

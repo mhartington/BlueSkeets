@@ -1,0 +1,46 @@
+<ion-item>
+<ion-icon
+  [name]="{ like: 'heart', repost: 'repeat', follow: 'person-add', reply: 'arrow-undo', quote: 'chatbubble-ellipses', mention: 'at-circle', }[_notification()!.reason]"
+  slot="start"
+></ion-icon>
+
+              <!-- {[...notifGroup.datas].slice(0, 4).map((notif) => ( -->
+              <!--   <div -->
+              <!--     key={notif.author.did + '-closed'} -->
+              <!--     className={styles.avatar} -->
+              <!--     onClick={(e) => -->
+              <!--       notifGroup.datas.length > 1 -->
+              <!--         ? _handleOpen(e) -->
+              <!--         : _linkToProfile(e) -->
+              <!--     } -->
+              <!--   > -->
+              <!--     <img src={notif?.author.avatar || AvatarPlaceholder} alt="" /> -->
+              <!--   </div> -->
+              <!-- ))} -->
+  <ion-label>
+
+  <div class="avatar-grid">
+      <ion-avatar  *ngFor="let notif of _notification()?.datas?.slice(0, 4)" >
+      <img [src]="notif.author.avatar" alt="" width="40" height="40">
+      </ion-avatar>
+  </div>
+
+    <p *ngIf="_notification()!.reason === 'follow'"> <strong>{{ displayName() }}</strong> followed you </p>
+    <p *ngIf="_notification()!.reason === 'like'"> <strong>{{ displayName() }}</strong> liked your post </p>
+    <p *ngIf="_notification()!.reason === 'quote'"> <strong>{{ displayName() }}</strong> quoted your post </p>
+    <p *ngIf="_notification()!.reason === 'repost'"> <strong>{{ displayName() }}</strong> reposted your post </p>
+    <p *ngIf="_notification()!.reason === 'mention'"> <strong>{{ displayName() }}</strong> mentioned you in their post </p>
+    <p *ngIf="_notification()!.reason === 'reply'"> <strong>{{ _notification()!.datas[0].author.displayName || _notification()!.datas[0].author.handle }}</strong> replied to your post </p>
+
+    <p *ngIf="_notification()!.post?.record?.text"> {{ _notification()!.post.record.text }} </p>
+    <ng-container *ngIf=" _notification()?.post?.embed && _notification()?.reason !== 'quote' && _notification()?.reason !== 'mention' " >
+      <div class="embed-wrapper">
+        <div class="img-wrapper" *ngFor="let img of _notification()?.post?.embed?.images" >
+          <img [src]="img.thumb" alt="" />
+        </div>
+      </div>
+    </ng-container>
+
+
+  </ion-label>
+</ion-item>

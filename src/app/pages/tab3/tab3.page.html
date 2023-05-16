@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid fixed="true">
   <ng-container *ngIf="actor(); let actor">
     <div
       class="detail-header"
@@ -16,16 +15,18 @@
         'background-color': actor.banner ? null: 'rgb(0, 112, 255)'
       }"
     >
-      <ion-avatar>
-        <img
-          [src]="actor.avatar"
-          loading="lazy"
-          alt=""
-          width="150"
-          height="150"
-        />
-      </ion-avatar>
     </div>
+
+  <ion-grid fixed="true" class="actor-bio">
+    <ion-avatar>
+      <img
+        [src]="actor.avatar"
+        loading="lazy"
+        alt=""
+        width="150"
+        height="150"
+      />
+    </ion-avatar>
     <div class="actor-bio ion-padding">
       <h1>{{actor.displayName}}</h1>
       <small>{{actor.handle}}</small>
@@ -36,8 +37,10 @@
       </p>
       <p [innerText]="actor.description"></p>
     </div>
+  </ion-grid>
   </ng-container>
 
+  <ion-grid fixed="true">
     <post-card
       *ngFor="let post of timeline()"
       [post]="post.post"

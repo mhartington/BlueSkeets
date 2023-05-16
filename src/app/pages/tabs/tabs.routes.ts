@@ -22,6 +22,13 @@ export const routes: Routes = [
           import('../post-view/post-view.page').then((m) => m.PostViewPage),
       },
 
+
+      {
+        path: 'notifications',
+        loadComponent: () =>
+          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+      },
+
       //Profile tab
       {
         path: 'profile/:did',

@@ -12,7 +12,6 @@ export class BskService {
 
   constructor() {
     this.restoreSavedSession();
-    console.log(this.handle)
   }
   async restoreSavedSession(): Promise<BskyAgent | null> {
     try {
@@ -33,7 +32,6 @@ export class BskService {
 
     return null;
   }
-
   async login({
     handle,
     password,
@@ -71,7 +69,6 @@ export class BskService {
       },
     });
   }
-
   async getTimeLine() {
     const res = await this.agent?.getTimeline();
     return res?.data.feed;

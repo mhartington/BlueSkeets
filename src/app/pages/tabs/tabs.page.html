@@ -21,6 +21,17 @@
         </ion-menu-toggle>
         <ion-menu-toggle autoHide="false">
           <ion-item
+            [routerLink]="'/app/notifications'"
+            routerDirection="root"
+            routerLinkActive="selected"
+            detail="false"
+          >
+            <ion-icon name="notifications" slot="start"></ion-icon>
+            Notifications
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide="false">
+          <ion-item
             [routerLink]="'/app/profile/' + handle"
             routerDirection="root"
             routerLinkActive="selected"
@@ -44,12 +55,9 @@
         <ion-tab-button tab="home">
           <ion-icon aria-hidden="true" name="home" />
         </ion-tab-button>
-
-        <!-- <ion-tab-button tab="tab2"> -->
-        <!--   <ion-icon aria-hidden="true" name="ellipse"></ion-icon> -->
-        <!--   <ion-label>Tab 2</ion-label> -->
-        <!-- </ion-tab-button> -->
-        <!---->
+        <ion-tab-button tab="notifications">
+          <ion-icon aria-hidden="true" name="notifications" />
+        </ion-tab-button>
         <ion-tab-button [tab]="'profile/' + handle">
           <ion-icon aria-hidden="true" name="person"></ion-icon>
         </ion-tab-button>
