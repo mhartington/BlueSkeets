@@ -1,8 +1,8 @@
 {
   "name": "BlueSkeets",
   "short_name": "Bskeets",
-  "theme_color": "#0070FF",
-  "background_color": "#0070FF",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

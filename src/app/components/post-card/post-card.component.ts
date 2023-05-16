@@ -16,8 +16,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PostCardComponent implements OnInit {
   @Input() set post(_post:PostView){
-    console.log('in set post')
-    console.log(_post)
       this._post.set(_post);
   };
 
