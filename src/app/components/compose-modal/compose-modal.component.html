@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-button
+        color="primary"
+        fill="clear"
+        (click)="close()"
+        [disabled]="pending()"
+        >Cancel</ion-button
+      >
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button
+        color="primary"
+        fill="solid"
+        shape="round"
+        (click)="post()"
+        [disabled]="pending()"
+        >Post</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-textarea
+    placeholder="What's up?"
+    autoGrow="true"
+    counter="true"
+    maxlength="300"
+    [disabled]="pending()"
+    [(ngModel)]="postContent"
+    [counterFormatter]="format"
+  ></ion-textarea>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start"> -->
+    <!--   <ion-button color="primary" fill="clear">Cancel</ion-button> -->
+    <!-- </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button
+        color="primary"
+        fill="solid"
+        shape="round"
+        [disabled]="pending()"
+        >Post</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

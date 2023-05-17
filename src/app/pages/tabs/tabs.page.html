@@ -44,7 +44,7 @@
       </ion-item-group>
       </ion-list>
       <ion-list line="none" class="ion-padding">
-      <ion-button fill="solid" shape="round" expand="block">New Post</ion-button>
+      <ion-button fill="solid" shape="round" expand="block" id="sidebar-post">New Post</ion-button>
       </ion-list>
 
     </ion-content>
@@ -65,3 +65,10 @@
     </ion-tabs>
   </div>
 </ion-split-pane>
+
+
+<ion-modal trigger="sidebar-post">
+  <ng-template>
+    <compose-modal class="ion-page" />
+  </ng-template>
+</ion-modal>

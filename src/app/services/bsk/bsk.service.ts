@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AtpSessionData, AtpSessionEvent, BskyAgent } from '@atproto/api';
 import { ThreadViewPost } from '@atproto/api/dist/client/types/app/bsky/feed/defs';
+import { ToastController } from '@ionic/angular';
 const DEFAULT_SERVICE = 'https://bsky.social';
 
 @Injectable({
@@ -72,5 +73,20 @@ export class BskService {
   async getTimeLine() {
     const res = await this.agent?.getTimeline();
     return res?.data.feed;
+  }
+
+  async post(content: { text: string; }) {
+    await this.agent?.post(content);
+    await this.notifyUser();
+  }
+
+  private toastCtrl = inject(ToastController)
+  async notifyUser(){
+    const toast = await this.toastCtrl.create({
+      message: "Your post has been published",
+      duration: 2000,
+      cssClass: 'bsk-notify',
+    })
+    await toast.present();
   }
 }

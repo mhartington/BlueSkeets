@@ -1,6 +1,12 @@
 :host {
   display: block;
+  height: 200px;
   :hover {
-    cursor: pointer
+    cursor: pointer;
+  }
+
+  ion-skeleton-text {
+    height: 12px;
+    margin-top: 12px;
   }
 }

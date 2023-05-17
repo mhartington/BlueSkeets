@@ -1,6 +1,15 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>Feed</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+          <ion-button fill="clear">
+      <ion-avatar style="width: 20px; height: 20px" slot="icon-only">
+        <img [src]="actor()?.avatar" alt="">
+      </ion-avatar>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -25,31 +34,6 @@
 
 <ion-modal trigger="author-post">
   <ng-template>
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="transparent">
-        <ion-buttons slot="start">
-          <ion-button color="primary" fill="clear">Cancel</ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-button color="primary" fill="solid" shape="round">Post</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="ion-padding">
-      <ion-textarea placeholder="What's up?" autoGrow="true" counter="true" maxlength="300" [counterFormatter]="format"></ion-textarea>
-    </ion-content>
-
-    <ion-footer class="ion-no-border">
-      <ion-toolbar>
-
-        <!-- <ion-buttons slot="start"> -->
-        <!--   <ion-button color="primary" fill="clear">Cancel</ion-button> -->
-        <!-- </ion-buttons> -->
-        <ion-buttons slot="end">
-          <ion-button color="primary" fill="solid" shape="round">Post</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-footer>
+    <compose-modal />
   </ng-template>
 </ion-modal>

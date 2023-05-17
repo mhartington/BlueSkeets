@@ -302,7 +302,6 @@ ion-grid {
   .embed-wrapper {
     display: grid;
     border-radius: 12px;
-    aspect-ratio: 16/9;
     overflow: hidden;
     row-gap: 10px;
     column-gap: 10px;
@@ -317,10 +316,12 @@ ion-grid {
     &:has(.img-wrapper:nth-child(2)) {
       grid-template-rows: 1fr;
       grid-template-columns: 1fr 1fr;
+      aspect-ratio: 16/9;
     }
     &:has(.img-wrapper:nth-child(3)) {
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+      aspect-ratio: 16/9;
 
       .img-wrapper:nth-child(3) {
         grid-column: 1 / -1;
@@ -329,6 +330,7 @@ ion-grid {
     &:has(.img-wrapper:nth-child(4)) {
       grid-template-rows: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+      aspect-ratio: 16/9;
       .img-wrapper:nth-child(3) {
         grid-column: unset;
       }
@@ -346,3 +348,10 @@ ion-grid {
   }
 
   }
+
+.bsk-notify{
+  --width: auto;
+  --max-width: 300px;
+  --min-width: auto;
+  text-align: center
+}

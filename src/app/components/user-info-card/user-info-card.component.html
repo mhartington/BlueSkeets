@@ -1,11 +1,17 @@
-<ng-container *ngIf="actor(); let actor">
+<ng-container *ngIf="actor(); else placeholder; let actor">
   <ion-avatar>
-    <img [src]="actor.avatar" alt="" />
+    <img [src]="actor?.avatar" alt="" />
   </ion-avatar>
-  <p>{{ actor.displayName }}</p>
-  <p>@{{ actor.handle }}</p>
-  <p>
-    <strong>{{ actor.followersCount }}</strong> followers •
-    <strong>{{ actor.followsCount }}</strong> following
-  </p>
+  <p>{{ actor?.displayName }}</p>
+  <p>@{{ actor?.handle }}</p>
+  <p> <strong>{{ actor?.followersCount }}</strong> followers • <strong>{{ actor?.followsCount }}</strong> following </p>
+
 </ng-container>
+<ng-template #placeholder>
+  <ion-avatar>
+    <ion-skeleton-text style="width: 100%; height: 100%" animated="true"></ion-skeleton-text>
+  </ion-avatar>
+  <ion-skeleton-text style="width: 80%" animated="true"></ion-skeleton-text>
+  <ion-skeleton-text style="width: 60%" animated="true"></ion-skeleton-text>
+  <ion-skeleton-text style="width: 100%" animated="true"></ion-skeleton-text>
+</ng-template>
