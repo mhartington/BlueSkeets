@@ -7,10 +7,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid fixed="true">
-    <!-- <pre>{{parents() | json}}</pre> -->
-    <ng-container *ngFor="let rents of parents()">
-      <post-card class="previous" [post]="rents" />
+  <ion-grid fixed="true" style="margin-bottom: 50vh">
+    <ng-container *ngIf="parents().length > 0">
+      <post-card  *ngFor="let rents of parents()" class="previous" [post]="rents" />
     </ng-container>
 
     <post-card
@@ -20,8 +19,8 @@
       (onPostLoad)="scrollInToView($event)"
     />
 
-    <!-- <ng-container *ngFor="let reply of replis()"> -->
-    <!--   <post-card class="reply" [post]="reply" /> -->
-    <!-- </ng-container> -->
+    <ng-container *ngIf="replis().length > 0">
+      <post-card  *ngFor="let reply of replis()" class="reply" [post]="reply" />
+    </ng-container>
   </ion-grid>
 </ion-content>

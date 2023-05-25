@@ -24,8 +24,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PostCardComponent {
   @Input() set post(_post: any) {
-    this._post.set(_post.post ?? _post);
-    this._thread.set(_post.reply ?? null)
+    this._post.set(_post);
+  }
+  @Input() set thread(_thread: any) {
+    this._thread.set(_thread);
   }
 
 
@@ -35,8 +37,10 @@ export class PostCardComponent {
 
   readonly _post = signal<PostView | null>(null);
   readonly _thread = signal<any>(null);
+
   readonly record = computed<any>(() => this._post()?.record);
   readonly embeds = computed<any>(() => this._post()?.embed);
+
   @Output() onPostLoad = new EventEmitter()
 
   readonly el = inject(ElementRef)

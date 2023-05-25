@@ -1,5 +1,6 @@
 :host {
-  padding-top: calc(var(--ion-safe-area-top) + 16px);
+  margin-top: calc(var(--ion-safe-area-top) + 16px);
+  margin-bottom: 16px;
   display: block;
   height: 200px;
   :hover {
