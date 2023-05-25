@@ -1,14 +1,17 @@
-import { JsonPipe, NgForOf, NgIf } from '@angular/common';
+import { JsonPipe, NgForOf, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { Notification } from 'src/app/types/notification';
+import { FollowedNotificationComponent } from "./followed-notification/followed-notification.component";
+import { LikedNotificationComponent } from "./liked-notification/liked-notification.component";
+import { RepliedNotificationComponent } from "./replied-notification/replied-notification.component";
 
 @Component({
-  selector: 'notification-item',
-  templateUrl: './notification-item.component.html',
-  styleUrls: ['./notification-item.component.scss'],
-  standalone: true,
-  imports: [IonicModule, JsonPipe, NgIf, NgForOf ]
+    selector: 'notification-item',
+    templateUrl: './notification-item.component.html',
+    styleUrls: ['./notification-item.component.scss'],
+    standalone: true,
+    imports: [IonicModule, JsonPipe, NgIf, NgForOf, NgSwitch, NgSwitchCase, FollowedNotificationComponent, LikedNotificationComponent, RepliedNotificationComponent]
 })
 export class NotificationItemComponent  implements OnInit {
   @Input() set notification(val: Notification){

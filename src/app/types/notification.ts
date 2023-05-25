@@ -100,4 +100,9 @@ export interface DataRecord {
     $type:     string;
     subject:   Subject;
     createdAt: Date;
+    text? : string;
+    embed?: EmbedImage | EmbedExternal | EmbedRecord | EmbedRecordWithMedia | {
+        $type: string;
+        [k: string]: any;
+    };
 }

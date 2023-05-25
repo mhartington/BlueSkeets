@@ -1,12 +1,12 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>Feed</ion-title>
+  <ion-toolbar>
+    <ion-title>Feed</ion-title>
     <ion-buttons slot="start">
       <ion-menu-toggle>
-          <ion-button fill="clear">
-      <ion-avatar style="width: 20px; height: 20px" slot="icon-only">
-        <img [src]="actor()?.avatar" alt="">
-      </ion-avatar>
+        <ion-button fill="clear">
+          <ion-avatar style="width: 24px; height: 24px" slot="icon-only">
+            <img [src]="actor()?.avatar" alt="" />
+          </ion-avatar>
         </ion-button>
       </ion-menu-toggle>
     </ion-buttons>
@@ -21,7 +21,7 @@
   <ion-grid fixed="true">
     <post-card
       *ngFor="let post of feed()"
-      [post]="post.post"
+      [post]="post"
       [routerLink]="'/app/home/' + post.post.author.handle + '/post/' + post.post.uri.split('/').pop()"
     />
   </ion-grid>

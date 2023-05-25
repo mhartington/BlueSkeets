@@ -1,5 +1,5 @@
 <ion-header [translucent]="true" class="ion-no-border">
-    <ion-toolbar class="transparent">
+  <ion-toolbar class="transparent">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/app" />
     </ion-buttons>
@@ -8,8 +8,20 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid fixed="true">
-  <ng-container *ngIf="mainPost(); let mainPost">
-    <post-card [post]="mainPost"></post-card>
-  </ng-container>
+    <!-- <pre>{{parents() | json}}</pre> -->
+    <ng-container *ngFor="let rents of parents()">
+      <post-card class="previous" [post]="rents" />
+    </ng-container>
+
+    <post-card
+      *ngIf="mainPost(); let mainPost"
+      [post]="mainPost"
+      class="main-post"
+      (onPostLoad)="scrollInToView($event)"
+    />
+
+    <ng-container *ngFor="let reply of replis()">
+      <post-card class="reply" [post]="reply" />
+    </ng-container>
   </ion-grid>
 </ion-content>

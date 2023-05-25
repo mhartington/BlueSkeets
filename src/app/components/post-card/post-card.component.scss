@@ -1,5 +1,13 @@
 :host {
   display: block;
+  position: relative;
+  z-index: 1;
+
+  ion-card {
+    position: relative;
+    z-index:1
+  }
+
   ion-buttons {
     justify-content: space-around;
     padding: 8px;
@@ -8,27 +16,79 @@
   ion-card-header {
     display: flex;
     flex-direction: row;
+    white-space: nowrap;
     gap: 20px;
-
-    ion-avatar{
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    ion-avatar {
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
+    }
+
+    .displayName {
+      color: var(--ion-text-color);
+    }
+    .handle {
     }
   }
 
-
-
-  ion-buttons{
-    ion-button{
-
-
-
-      &.user-liked{
-       ion-icon{
+  ion-buttons {
+    ion-button {
+      &.user-liked {
+        ion-icon {
           color: rgb(236, 72, 153);
         }
       }
     }
   }
 
+  ion-card-content {
+    color: var(--ion-text-color);
+  }
+
+  &.main-post {
+    ion-card-content {
+      p {
+        font-size: 18px;
+      }
+    }
+    ion-card-header {
+      display: block;
+
+      ion-avatar {
+        width: 68px;
+        height: 68px;
+      }
+    }
+  }
+
+  &.previous{
+    padding: 0px 16px 16px 16px;
+    &::before {
+      content: ' ';
+      height: 44px;
+      width: 2px;
+      position: absolute;
+      left: 50px;
+      bottom: -13px;
+      background: var(--ion-color-step-150);
+      z-index: 0;
+    }
+  }
+  &.reply {
+    padding: 10px 16px 0 16px;
+    &::before {
+      content: ' ';
+      height: 30px;
+      width: 2px;
+      position: absolute;
+      left: 50px;
+      top: -10px;
+      background: var(--ion-color-step-150);
+      z-index: 0;
+    }
+  }
 }

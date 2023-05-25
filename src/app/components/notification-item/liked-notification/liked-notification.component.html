@@ -1,0 +1,39 @@
+<ion-item>
+  <ion-icon
+    name="heart"
+    slot="start"
+    color="danger"
+  ></ion-icon>
+  <ion-label>
+    <div class="avatar-grid">
+      <ion-avatar *ngFor="let notif of data?.datas?.slice(0, 4)">
+        <img [src]="notif.author.avatar" alt="" width="40" height="40" />
+      </ion-avatar>
+    </div>
+    <p>
+      <strong>{{ textPrefix }}</strong> liked your post    </p>
+    <!---->
+    <!--   <p *ngIf="_notification()!.reason === 'quote'"> <strong>{{ displayName() }}</strong> quoted your post </p> -->
+    <!--   <p *ngIf="_notification()!.reason === 'repost'"> <strong>{{ displayName() }}</strong> reposted your post </p> -->
+    <!--   <p *ngIf="_notification()!.reason === 'mention'"> <strong>{{ displayName() }}</strong> mentioned you in their post </p> -->
+    <!--   <p *ngIf="_notification()!.reason === 'reply'"> <strong>{{ _notification()!.datas[0].author.displayName || _notification()!.datas[0].author.handle }}</strong> replied to your post </p> -->
+    <!--   <p *ngIf="_notification()!.post?.record?.text"> {{ _notification()!.post.record.text }} </p> -->
+    <!---->
+      <ng-container
+        *ngIf="
+          data?.post?.embed &&
+          data?.reason !== 'quote' &&
+          data?.reason !== 'mention'
+        "
+      >
+        <div class="embed-wrapper">
+          <div
+            class="img-wrapper"
+            *ngFor="let img of data?.post?.embed?.images"
+          >
+            <img [src]="img.thumb" alt="" />
+          </div>
+        </div>
+      </ng-container>
+  </ion-label>
+</ion-item>
