@@ -5,7 +5,7 @@
 
   ion-card {
     position: relative;
-    z-index:1
+    z-index: 1;
   }
 
   ion-buttons {
@@ -49,6 +49,22 @@
     color: var(--ion-text-color);
   }
 
+  p {
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+    line-height: 20.8px;
+    margin-bottom: 12px;
+
+    &.replied-to {
+      font-size: 14px;
+      letter-spacing: 0.25px;
+      font-weight: 400;
+      line-height: 18px;
+      color: var(--ion-color-step-400);
+    }
+  }
+
   &.main-post {
     ion-card-content {
       p {
@@ -65,7 +81,7 @@
     }
   }
 
-  &.previous{
+  &.previous {
     padding: 0px 16px 16px 16px;
     &::before {
       content: ' ';

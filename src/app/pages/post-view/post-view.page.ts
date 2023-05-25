@@ -39,7 +39,7 @@ export class PostViewPage implements OnInit {
         }
       }
     };
-    if (this.postThread() && 'replies' in this.postThread()) {
+    if (this.postThread() && 'replies' in this.postThread() && this.postThread().replies.length > 0) {
       generateReplies(this.postThread()?.replies[0]);
     }
     return repliesToGen;
@@ -47,13 +47,13 @@ export class PostViewPage implements OnInit {
   public parents = computed(() => {
     const parentsToGen: any[] = [];
     const generateParentPost = (obj: any) => {
+    parentsToGen.push(obj.post);
       if (obj.parent) {
-        parentsToGen.push(obj.post);
         generateParentPost(obj.parent);
       }
     };
-    if (this.postThread() && 'parent' in this.postThread()) {
-      generateParentPost(this.postThread()?.parent);
+    if (this.postThread() && this.postThread().parent) {
+      generateParentPost(this.postThread().parent);
     }
     return parentsToGen.reverse();
   });

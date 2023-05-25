@@ -15,7 +15,7 @@
     </ng-container>
   </ion-card-header>
   <ion-card-content>
-    <p *ngIf="_thread()?.parent">
+    <p *ngIf="_thread()?.parent" class="replied-to">
         <ion-icon name="arrow-undo"></ion-icon>
         Replied to {{_thread()?.parent?.author.displayName |json}}
     </p>

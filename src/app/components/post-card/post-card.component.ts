@@ -4,7 +4,6 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   computed,
   inject,
@@ -14,7 +13,6 @@ import { IonicModule } from '@ionic/angular';
 import { BskService } from 'src/app/services/bsk/bsk.service';
 import {
   PostView,
-  ThreadViewPost,
 } from '@atproto/api/dist/client/types/app/bsky/feed/defs';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -27,6 +25,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PostCardComponent {
   @Input() set post(_post: any) {
     this._post.set(_post.post ?? _post);
+    this._thread.set(_post.reply ?? null)
   }
 
 
