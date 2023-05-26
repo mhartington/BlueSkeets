@@ -8,9 +8,9 @@
     <h2>{{ textPrefix }}</h2>
     <p>
       <ion-icon name="arrow-undo" /> Replied to
-      <strong> {{ data.post.author.displayName }} </strong>
+      <strong> {{ post().author.displayName }} </strong>
     </p>
-    <p class="post-content">{{ data.datas[0].record.text }}</p>
+    <p class="post-content">{{ post().record.text }}</p>
     <ng-container *ngIf="embeds(); let embeds">
       <div class="embed-wrapper">
         <div class="img-wrapper" *ngFor="let img of embeds.images">

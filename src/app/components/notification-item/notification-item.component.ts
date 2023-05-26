@@ -1,34 +1,52 @@
-import { JsonPipe, NgForOf, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
+import {
+  JsonPipe,
+  NgForOf,
+  NgIf,
+  NgSwitch,
+  NgSwitchCase,
+} from '@angular/common';
 import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { Notification } from 'src/app/types/notification';
-import { FollowedNotificationComponent } from "./followed-notification/followed-notification.component";
-import { LikedNotificationComponent } from "./liked-notification/liked-notification.component";
-import { RepliedNotificationComponent } from "./replied-notification/replied-notification.component";
+import { FollowedNotificationComponent } from './followed-notification/followed-notification.component';
+import { LikedNotificationComponent } from './liked-notification/liked-notification.component';
+import { RepliedNotificationComponent } from './replied-notification/replied-notification.component';
 
 @Component({
-    selector: 'notification-item',
-    templateUrl: './notification-item.component.html',
-    styleUrls: ['./notification-item.component.scss'],
-    standalone: true,
-    imports: [IonicModule, JsonPipe, NgIf, NgForOf, NgSwitch, NgSwitchCase, FollowedNotificationComponent, LikedNotificationComponent, RepliedNotificationComponent]
+  selector: 'notification-item',
+  templateUrl: './notification-item.component.html',
+  styleUrls: ['./notification-item.component.scss'],
+  standalone: true,
+  imports: [
+    IonicModule,
+    JsonPipe,
+    NgIf,
+    NgForOf,
+    NgSwitch,
+    NgSwitchCase,
+    FollowedNotificationComponent,
+    LikedNotificationComponent,
+    RepliedNotificationComponent,
+  ],
 })
-export class NotificationItemComponent  implements OnInit {
-  @Input() set notification(val: Notification){
-    this._notification.set(val)
+export class NotificationItemComponent implements OnInit {
+  @Input() set notification(val: Notification) {
+    this._notification.set(val);
   }
-  readonly _notification = signal<Notification | null>(null)
+  readonly _notification = signal<Notification | null>(null);
   readonly displayName = computed(() => {
-
-    if (this._notification()!.datas.length && this._notification()!.datas.length - 1 > 0) {
+    if (
+      this._notification()!.datas.length &&
+      this._notification()!.datas.length - 1 > 0
+    ) {
       // @ts-ignore
       return `${
         this._notification()?.datas[0]?.author.displayName ||
         this._notification()?.datas[0]?.author.handle
       }${
         ', ' +
-        this._notification()?.datas
-          .slice(1, Math.min(3, this._notification()!.datas.length))
+        this._notification()
+          ?.datas.slice(1, Math.min(3, this._notification()!.datas.length))
           .map((notif) => notif.author.displayName || '@' + notif.author.handle)
           .join(',')
       } and ${
@@ -42,7 +60,6 @@ export class NotificationItemComponent  implements OnInit {
         this._notification()!.datas[0]?.author.handle
       );
     }
-  })
+  });
   ngOnInit() {}
-
 }

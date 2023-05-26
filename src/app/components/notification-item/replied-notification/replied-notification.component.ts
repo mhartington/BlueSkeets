@@ -17,12 +17,13 @@ export class RepliedNotificationComponent implements OnInit {
   private bsk = inject(BskService);
 
   public embeds = signal<any>(null);
-
+  public post = signal<any>(null);
   async ngOnInit() {
     const res = await this.bsk.agent?.getPostThread({
       uri: this.data.datas[0].uri,
       depth: 0,
     });
+    this.post.set(this.data.datas[0]);
     this.embeds.set((res?.data.thread.post as any).embed)
   }
 }
