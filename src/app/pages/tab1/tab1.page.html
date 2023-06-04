@@ -23,6 +23,7 @@
       *ngFor="let post of feed()"
       [post]="post.post"
       [thread]="post.reply"
+      [reason]="post.reason"
       [routerLink]="'/app/home/' + post.post.author.handle + '/post/' + post.post.uri.split('/').pop()"
     />
   </ion-grid>

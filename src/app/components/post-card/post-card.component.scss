@@ -3,6 +3,9 @@
   position: relative;
   z-index: 1;
 
+  .reason {
+    white-space: nowrap;
+  }
   ion-card {
     position: relative;
     z-index: 1;
@@ -18,28 +21,45 @@
     flex-direction: row;
     white-space: nowrap;
     gap: 20px;
-    p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    align-items: flex-end;
     ion-avatar {
       width: 48px;
       height: 48px;
       flex-shrink: 0;
     }
-
+    .actor-post-info {
+      display: flex;
+      flex-direction: row;
+    }
     .displayName {
       color: var(--ion-text-color);
     }
     .handle {
     }
   }
-
+  a{
+    color: var(--ion-text-color);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   ion-buttons {
     ion-button {
       &.user-liked {
+        --color: var(--ion-color-danger);
         ion-icon {
-          color: rgb(236, 72, 153);
+          color: var(--ion-color-danger);
+        }
+      }
+      &.user-repost {
+        --color: var(--ion-color-success);
+        ion-icon {
+          color: var(--ion-color-success);
         }
       }
     }
